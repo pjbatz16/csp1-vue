@@ -24,6 +24,14 @@
                         </div>
                         <button type="submit" class="submit-btn pl-5 pr-5">Submit</button>
                     </div>
+
+
+                    <!-- recaptcha checkbox -->
+                    <div class="d-flex justify-content-end mt-2">
+                        <div ref="recaptchaContainer"></div>
+                    </div>
+
+                    
                 </form>
                 
             </div>
@@ -40,7 +48,7 @@
 
 	const notyf = new Notyf();
 
-	const WEB3FORMS_ACCESS_KEY = "4e0dba34-036a-4c1a-847d-2a3245797145";
+	const WEB3FORMS_ACCESS_KEY = "631e24cc-b018-430e-836a-2cd1923b924d";
 
 	// email subject
 	const subject = "New message from Portfolio Contact form";
@@ -56,6 +64,7 @@
 		// Check if reCAPTCHA token is present, return an error when not verified
 		if(!recaptchaToken.value){
 			notyf.error("Please verify that you are not a robot")
+			return;
 		}
 
 		isLoading.value = true;
@@ -86,7 +95,7 @@
 			}
 			else{
 				isLoading.value = false;
-				noty.error("Failed to send message");
+				notyf.error("Failed to send message");
 			}
 		}
 		catch(error){
@@ -161,6 +170,4 @@
 	
 
 
-
 </script>
-
